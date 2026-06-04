@@ -190,39 +190,6 @@
       .hero-meta .meta-block { padding-right: 14px; }
     }
 
-    /* ─── MARQUEE ───────────────────────────────────────────────── */
-    .strip {
-      background: var(--ink);
-      color: var(--paper);
-      padding: 18px 0;
-      overflow: hidden;
-      border-bottom: 3px solid var(--rule);
-    }
-    .strip-track {
-      display: flex;
-      white-space: nowrap;
-      animation: marquee 80s linear infinite;
-      font-family: var(--display);
-      font-size: 1.5rem;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      will-change: transform;
-    }
-    /* margin-right en cada item — no gap — para que translateX(-50%) caiga
-       exactamente sobre el inicio del segundo set y el loop sea perfecto. */
-    .strip-track > span {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      margin-right: 56px;
-      flex-shrink: 0;
-    }
-    .strip-track .star { color: var(--mostaza); font-size: 1.2rem; }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
     /* ─── SECTIONS ──────────────────────────────────────────────── */
     .section { padding: 72px 0 60px; }
     .section + .section { border-top: 2px dashed var(--ink); }
@@ -1003,7 +970,6 @@
         transition-duration: .001ms !important;
       }
       html { scroll-behavior: auto; }
-      .strip-track { animation: none; }
       .boot-ball   { animation: none; box-shadow: 0 0 0 6px rgba(255,45,111,.35); }
     }
   </style>
@@ -1060,10 +1026,6 @@
     </div>
   </header>
 
-  <!-- Marquee strip — los 22 mundiales -->
-  <div class="strip">
-    <div class="strip-track" id="strip"></div>
-  </div>
 
   <!-- ── GLOBAL RANKINGS ────────────────────────────────────────── -->
   <section class="section">
@@ -1399,15 +1361,6 @@
       });
     }
 
-    function renderMarquee(years) {
-      const list = Object.values(years)
-        .sort((a, b) => a.year - b.year)
-        .map(y =>
-          `<span>${esc(y.host.toUpperCase())} ${y.year} <em class="star" aria-hidden="true">★</em></span>`
-        );
-      $('strip').innerHTML = list.concat(list).join('');
-    }
-
     /* ── Tabs con ARIA + navegación por teclado (←/→/Home/End) ──── */
     function setupTabs() {
       const nav   = $('tabNav');
@@ -1584,7 +1537,6 @@
         animCount(E['meta-matches'], global.total_matches);
         animCount(E['meta-goals'],   global.total_goals);
 
-        renderMarquee(years);
         renderRanking('list-countries', global.top_countries,
           d => d.country, d => d.appearances);
         renderRanking('list-players', global.top_players,
