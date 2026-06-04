@@ -1,6 +1,6 @@
 """
 Genera data/historico.json a partir de la Fjelstul World Cup Database
-(github.com/jfjelstul/worldcup) — carpeta worldcup/data-csv/.
+(github.com/jfjelstul/worldcup) — carpeta fuente4/.
 
 Filtra únicamente Mundiales masculinos (1930–2022). La landing page
 index_historico.html consume solo este JSON, nunca los CSV.
@@ -10,7 +10,7 @@ import pandas as pd
 import json
 import os
 
-BASE = 'worldcup/data-csv'
+BASE = 'fuente4'
 
 
 # ── Cargar datasets ─────────────────────────────────────────────────────────
