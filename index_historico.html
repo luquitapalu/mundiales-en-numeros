@@ -3,10 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Historia en números de los Mundiales</title>
+  <title>Historia en números de los Mundiales · 1930–2022</title>
+
+  <!-- SEO -->
+  <meta name="description" content="92 años de Mundiales en datos: 22 ediciones, 964 partidos, 2.720 goles. Goleadores, campeones, árbitros y récords desde Uruguay 1930 hasta Qatar 2022." />
+  <meta name="theme-color" content="#FFF6E3" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Historia en números de los Mundiales" />
+  <meta property="og:description" content="22 ediciones, 964 partidos, 2.720 goles. El torneo más grande del planeta, leído en datos." />
+  <meta property="og:locale" content="es_AR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Historia en números de los Mundiales" />
+  <meta name="twitter:description" content="22 ediciones, 964 partidos, 2.720 goles." />
+
+  <!-- Favicon (inline SVG, sin request extra) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23FFCB1F'/%3E%3Ctext x='50' y='72' font-size='64' text-anchor='middle' font-family='sans-serif'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts (solo los pesos efectivamente usados) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,500&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     /* ─── Reset & Tokens ────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -911,9 +929,92 @@
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    /* ─── Loading / Error overlay ───────────────────────────────── */
+    .boot {
+      position: fixed;
+      inset: 0;
+      background: var(--paper);
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      gap: 18px;
+      grid-auto-flow: row;
+      transition: opacity .35s ease;
+    }
+    .boot.hidden { opacity: 0; pointer-events: none; }
+    .boot-ball {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--ink);
+      box-shadow: 0 0 0 0 rgba(255,45,111,.6);
+      animation: bootPulse 1.2s ease-in-out infinite;
+    }
+    @keyframes bootPulse {
+      0%   { transform: scale(1);   box-shadow: 0 0 0 0   rgba(255,45,111,.45); }
+      70%  { transform: scale(1.1); box-shadow: 0 0 0 22px rgba(255,45,111,0); }
+      100% { transform: scale(1);   box-shadow: 0 0 0 0   rgba(255,45,111,0); }
+    }
+    .boot-text {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .boot-error {
+      max-width: 460px;
+      padding: 28px 32px;
+      border: 3px solid var(--ink);
+      border-radius: 20px;
+      background: var(--mostaza);
+      text-align: center;
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+    .boot-error .err-title {
+      font-family: var(--display);
+      font-size: 1.6rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .boot-error .err-body {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: .95rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .boot-error code {
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-style: normal;
+      font-size: .82rem;
+    }
+
+    /* ─── Reduced motion ────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+      html { scroll-behavior: auto; }
+      .strip-track { animation: none; }
+      .boot-ball   { animation: none; box-shadow: 0 0 0 6px rgba(255,45,111,.35); }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ── BOOT (loading / error state) ───────────────────────────── -->
+  <div class="boot" id="boot" role="status" aria-live="polite">
+    <div class="boot-ball" aria-hidden="true"></div>
+    <div class="boot-text" id="bootText">Cargando archivo…</div>
+  </div>
 
   <!-- ── HERO ───────────────────────────────────────────────────── -->
   <header class="hero">
@@ -1023,7 +1124,7 @@
       </p>
       <div class="select-wrap">
         <select id="yearSelect" aria-label="Elegí un Mundial">
-          <option value="">— Abrir el archivo —</option>
+          <option value="">Seleccione aquí</option>
         </select>
       </div>
     </div>
@@ -1079,15 +1180,15 @@
         Lupa sobre el torneo <span class="ital">— elegí qué mirar</span>
       </div>
 
-      <div class="tab-nav" id="tabNav">
-        <button class="tab-btn active" data-tab="partidos"><span class="dot"></span>Partidos</button>
-        <button class="tab-btn"        data-tab="goles"><span class="dot"></span>Goles</button>
-        <button class="tab-btn"        data-tab="tarjetas"><span class="dot"></span>Tarjetas</button>
-        <button class="tab-btn"        data-tab="arbitros"><span class="dot"></span>Árbitros</button>
+      <div class="tab-nav" id="tabNav" role="tablist" aria-label="Datos del Mundial seleccionado">
+        <button class="tab-btn active" id="tab-partidos" role="tab" aria-selected="true"  aria-controls="pane-partidos" tabindex="0"  data-tab="partidos"><span class="dot" aria-hidden="true"></span>Partidos</button>
+        <button class="tab-btn"        id="tab-goles"    role="tab" aria-selected="false" aria-controls="pane-goles"    tabindex="-1" data-tab="goles"><span class="dot" aria-hidden="true"></span>Goles</button>
+        <button class="tab-btn"        id="tab-tarjetas" role="tab" aria-selected="false" aria-controls="pane-tarjetas" tabindex="-1" data-tab="tarjetas"><span class="dot" aria-hidden="true"></span>Tarjetas</button>
+        <button class="tab-btn"        id="tab-arbitros" role="tab" aria-selected="false" aria-controls="pane-arbitros" tabindex="-1" data-tab="arbitros"><span class="dot" aria-hidden="true"></span>Árbitros</button>
       </div>
 
       <!-- Pane: Partidos -->
-      <div class="tab-pane active" data-pane="partidos">
+      <div class="tab-pane active" id="pane-partidos" role="tabpanel" aria-labelledby="tab-partidos" tabindex="0" data-pane="partidos">
         <div class="pane-grid">
           <div class="tile t-magenta">
             <div>
@@ -1117,7 +1218,7 @@
       </div>
 
       <!-- Pane: Goles -->
-      <div class="tab-pane" data-pane="goles">
+      <div class="tab-pane" id="pane-goles" role="tabpanel" aria-labelledby="tab-goles" tabindex="0" data-pane="goles" hidden>
         <div class="pane-grid">
           <div class="tile t-azul">
             <div>
@@ -1147,7 +1248,7 @@
       </div>
 
       <!-- Pane: Tarjetas -->
-      <div class="tab-pane" data-pane="tarjetas">
+      <div class="tab-pane" id="pane-tarjetas" role="tabpanel" aria-labelledby="tab-tarjetas" tabindex="0" data-pane="tarjetas" hidden>
         <div class="pane-grid" id="cardsGrid">
           <div class="tile t-mostaza">
             <div>
@@ -1189,7 +1290,7 @@
       </div>
 
       <!-- Pane: Árbitros -->
-      <div class="tab-pane" data-pane="arbitros">
+      <div class="tab-pane" id="pane-arbitros" role="tabpanel" aria-labelledby="tab-arbitros" tabindex="0" data-pane="arbitros" hidden>
         <div class="pane-grid">
           <div class="tile t-lila">
             <div>
@@ -1228,12 +1329,29 @@
   </footer>
 
   <script>
+    'use strict';
+
     /* ── Helpers ─────────────────────────────────────────────────── */
-    function nfmt(n) { return Number(n).toLocaleString('es-AR'); }
+    const $ = id => document.getElementById(id);
+    const nfmt = n => Number(n).toLocaleString('es-AR');
+
+    // Escape para todo lo que se inyecta vía innerHTML.
+    function esc(s) {
+      return String(s ?? '').replace(/[&<>"']/g, c => (
+        { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]
+      ));
+    }
+
+    const reduceMotion =
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function animCount(el, target, duration = 800) {
       const num = parseFloat(target);
       const isFloat = String(target).includes('.');
+      if (reduceMotion) {
+        el.textContent = isFloat ? num.toFixed(2) : nfmt(Math.round(num));
+        return;
+      }
       const start = performance.now();
       function tick(now) {
         const t = Math.min((now - start) / duration, 1);
@@ -1245,32 +1363,33 @@
       requestAnimationFrame(tick);
     }
 
+    /* ── Renderers ───────────────────────────────────────────────── */
     function renderRanking(containerId, items, nameFn, valFn, teamFn) {
-      const el = document.getElementById(containerId);
+      const el = $(containerId);
       el.innerHTML = items.map((item, i) => {
-        const team = teamFn ? teamFn(item) : '';
-        const badge = team ? `<span class="ritem-team">${team}</span>` : '';
+        const team  = teamFn ? teamFn(item) : '';
+        const badge = team ? `<span class="ritem-team">${esc(team)}</span>` : '';
         return `
           <div class="ritem">
             <span class="ritem-rank">${i + 1}</span>
-            <span class="ritem-name"><span>${nameFn(item)}</span>${badge}</span>
-            <span class="ritem-val">${valFn(item)}</span>
+            <span class="ritem-name"><span>${esc(nameFn(item))}</span>${badge}</span>
+            <span class="ritem-val">${esc(valFn(item))}</span>
           </div>`;
       }).join('');
     }
 
     function renderGoalDist(items) {
       const max = Math.max(...items.map(d => d.goals));
-      const el  = document.getElementById('chart-goals');
+      const el  = $('chart-goals');
       el.innerHTML = items.map((d, i) => {
         const pct = (d.goals / max) * 100;
         return `
           <div class="dcol">
             <div class="dbar-wrap">
-              <div class="dbar c${i}" data-count="${nfmt(d.goals)}"
+              <div class="dbar c${i}" data-count="${esc(nfmt(d.goals))}"
                    data-target="${pct}" style="height:0%"></div>
             </div>
-            <div class="dlabel">${d.range}</div>
+            <div class="dlabel">${esc(d.range)}</div>
           </div>`;
       }).join('');
       requestAnimationFrame(() => {
@@ -1283,120 +1402,189 @@
     function renderMarquee(years) {
       const list = Object.values(years)
         .sort((a, b) => a.year - b.year)
-        .map(y => `<span>${y.host.toUpperCase()} ${y.year} <em class="star">★</em></span>`);
-      // duplicar para loop continuo
-      document.getElementById('strip').innerHTML = list.concat(list).join('');
+        .map(y =>
+          `<span>${esc(y.host.toUpperCase())} ${y.year} <em class="star" aria-hidden="true">★</em></span>`
+        );
+      $('strip').innerHTML = list.concat(list).join('');
     }
 
-    /* ── Tabs ────────────────────────────────────────────────────── */
+    /* ── Tabs con ARIA + navegación por teclado (←/→/Home/End) ──── */
     function setupTabs() {
-      const nav = document.getElementById('tabNav');
+      const nav   = $('tabNav');
+      const tabs  = Array.from(nav.querySelectorAll('.tab-btn'));
+      const panes = tabs.map(t => $(t.getAttribute('aria-controls')));
+
+      function activate(i, focus = false) {
+        tabs.forEach((t, j) => {
+          const on = j === i;
+          t.classList.toggle('active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          panes[j].classList.toggle('active', on);
+          panes[j].hidden = !on;
+        });
+        if (focus) tabs[i].focus();
+      }
+
       nav.addEventListener('click', e => {
         const btn = e.target.closest('.tab-btn');
         if (!btn) return;
-        const target = btn.dataset.tab;
-        nav.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
-        document.querySelectorAll('.tab-pane').forEach(p =>
-          p.classList.toggle('active', p.dataset.pane === target));
+        activate(tabs.indexOf(btn));
+      });
+
+      nav.addEventListener('keydown', e => {
+        const i = tabs.indexOf(document.activeElement);
+        if (i < 0) return;
+        let next = i;
+        switch (e.key) {
+          case 'ArrowRight': next = (i + 1) % tabs.length; break;
+          case 'ArrowLeft':  next = (i - 1 + tabs.length) % tabs.length; break;
+          case 'Home':       next = 0; break;
+          case 'End':        next = tabs.length - 1; break;
+          default: return;
+        }
+        e.preventDefault();
+        activate(next, true);
       });
     }
 
     /* ── Year Detail ─────────────────────────────────────────────── */
+    // Cache de nodos — se popula una vez para evitar 30+ lookups por cambio.
+    let E = null;
+    function cacheNodes() {
+      const ids = [
+        'meta-cups','meta-matches','meta-goals',
+        'detailYear','detailHost','yearDetail',
+        'champName','champYear','champGoals','champRecord',
+        'champManager','champTopScorer','champTopScorerLabel',
+        'pMatchesTotal','pPctExtra','pExtraSub','pPctPK','pPKSub',
+        'gTotal','gAvg','gPctPenalty','gPenaltySub','gTopName','gTopSub',
+        'cardsGrid','cardsEmpty','cardsEmptyTitle',
+        'cYellow','cRed','cPctDirect','cDirectSub',
+        'rName','rMatches','rCountry',
+      ];
+      E = Object.fromEntries(ids.map(id => [id, $(id)]));
+    }
+
+    let firstShow = true;
     function showYear(d) {
-      const section = document.getElementById('yearDetail');
+      const section = E.yearDetail;
       section.classList.remove('visible');
+      // Force reflow → reinicia la animación fadeUp
       void section.offsetWidth;
 
-      document.getElementById('detailYear').textContent = d.year;
-      document.getElementById('detailHost').innerHTML =
-        `Sede <strong>${d.host}</strong>`;
+      E.detailYear.textContent = d.year;
+      E.detailHost.innerHTML   = `Sede <strong>${esc(d.host)}</strong>`;
 
       // Champion
-      document.getElementById('champName').textContent    = d.champion;
-      document.getElementById('champYear').textContent    = d.year;
-      animCount(document.getElementById('champGoals'),    d.champion_goals);
-      document.getElementById('champRecord').textContent  =
-        `${d.champion_matches_won}/${d.champion_matches_played}`;
-      document.getElementById('champManager').textContent =
-        d.champion_manager || '—';
+      E.champName.textContent    = d.champion;
+      E.champYear.textContent    = d.year;
+      animCount(E.champGoals, d.champion_goals);
+      E.champRecord.textContent  = `${d.champion_matches_won}/${d.champion_matches_played}`;
+      E.champManager.textContent = d.champion_manager || '—';
+
       const cts = d.champion_top_scorer;
-      document.getElementById('champTopScorer').textContent =
-        cts ? cts.name : '—';
-      document.getElementById('champTopScorerLabel').textContent =
-        cts ? `Goleador del equipo · ${cts.goals} ${cts.goals === 1 ? 'gol' : 'goles'}` :
-              'Goleador del equipo';
+      E.champTopScorer.textContent = cts ? cts.name : '—';
+      E.champTopScorerLabel.textContent = cts
+        ? `Goleador del equipo · ${cts.goals} ${cts.goals === 1 ? 'gol' : 'goles'}`
+        : 'Goleador del equipo';
 
-      // Tab: Partidos
+      // Partidos
       const sm = d.stats_matches;
-      document.getElementById('pMatchesTotal').textContent = nfmt(sm.total);
-      document.getElementById('pPctExtra').textContent = sm.pct_extra_time.toFixed(1) + '%';
-      document.getElementById('pExtraSub').textContent =
+      E.pMatchesTotal.textContent = nfmt(sm.total);
+      E.pPctExtra.textContent     = sm.pct_extra_time.toFixed(1) + '%';
+      E.pExtraSub.textContent     =
         `${sm.extra_time} de ${sm.total} partidos fueron a tiempo extra`;
-      document.getElementById('pPctPK').textContent =
-        sm.extra_time ? sm.pct_penalty_of_extra.toFixed(1) + '%' : '—';
-      document.getElementById('pPKSub').textContent =
-        sm.extra_time
-          ? `${sm.penalty_shootout} de ${sm.extra_time} alargues terminaron en penales`
-          : 'no hubo partidos a tiempo extra';
+      E.pPctPK.textContent = sm.extra_time ? sm.pct_penalty_of_extra.toFixed(1) + '%' : '—';
+      E.pPKSub.textContent = sm.extra_time
+        ? `${sm.penalty_shootout} de ${sm.extra_time} alargues terminaron en penales`
+        : 'no hubo partidos a tiempo extra';
 
-      // Tab: Goles
+      // Goles
       const sg = d.stats_goals;
-      document.getElementById('gTotal').textContent = nfmt(sg.total);
-      document.getElementById('gAvg').textContent =
-        `${(sg.total / d.total_matches).toFixed(2)} goles por partido`;
-      document.getElementById('gPctPenalty').textContent = sg.pct_penalty.toFixed(1) + '%';
-      document.getElementById('gPenaltySub').textContent =
-        `${sg.penalty_goals} goles desde los 12 pasos`;
+      E.gTotal.textContent       = nfmt(sg.total);
+      E.gAvg.textContent         = `${(sg.total / d.total_matches).toFixed(2)} goles por partido`;
+      E.gPctPenalty.textContent  = sg.pct_penalty.toFixed(1) + '%';
+      E.gPenaltySub.textContent  = `${sg.penalty_goals} goles desde los 12 pasos`;
       const gts = sg.top_scorer;
-      document.getElementById('gTopName').textContent = gts ? gts.name : '—';
-      document.getElementById('gTopSub').textContent =
-        gts ? `${gts.goals} goles · ${gts.team}` : '';
+      E.gTopName.textContent     = gts ? gts.name : '—';
+      E.gTopSub.textContent      = gts ? `${gts.goals} goles · ${gts.team}` : '';
 
-      // Tab: Tarjetas — antes de 1970 no había sistema de tarjetas
+      // Tarjetas — antes de 1970 no había sistema
       const sc = d.stats_cards;
       const cardsExist = sc.yellow > 0 || sc.red > 0;
-      document.getElementById('cardsGrid').hidden  = !cardsExist;
-      document.getElementById('cardsEmpty').hidden = cardsExist;
+      E.cardsGrid.hidden  = !cardsExist;
+      E.cardsEmpty.hidden = cardsExist;
       if (cardsExist) {
-        animCount(document.getElementById('cYellow'), sc.yellow);
-        animCount(document.getElementById('cRed'),    sc.red);
-        document.getElementById('cPctDirect').textContent =
-          sc.red ? sc.pct_direct_red.toFixed(1) + '%' : '—';
-        document.getElementById('cDirectSub').textContent =
-          sc.red
-            ? `${sc.direct_red} de ${sc.red} expulsiones fueron por roja directa`
-            : 'no hubo expulsiones registradas';
+        animCount(E.cYellow, sc.yellow);
+        animCount(E.cRed,    sc.red);
+        E.cPctDirect.textContent = sc.red ? sc.pct_direct_red.toFixed(1) + '%' : '—';
+        E.cDirectSub.textContent = sc.red
+          ? `${sc.direct_red} de ${sc.red} expulsiones fueron por roja directa`
+          : 'no hubo expulsiones registradas';
       } else {
-        document.getElementById('cardsEmptyTitle').textContent =
-          `Sin registro de tarjetas en ${d.year}`;
+        E.cardsEmptyTitle.textContent = `Sin registro de tarjetas en ${d.year}`;
       }
 
-      // Tab: Árbitros
+      // Árbitros
       const sr = d.stats_referee;
-      document.getElementById('rName').textContent    = sr ? sr.name : '—';
-      document.getElementById('rMatches').textContent = sr ? sr.matches : '—';
-      document.getElementById('rCountry').textContent = sr ? sr.country : '—';
+      E.rName.textContent    = sr ? sr.name    : '—';
+      E.rMatches.textContent = sr ? sr.matches : '—';
+      E.rCountry.textContent = sr ? sr.country : '—';
 
       section.classList.add('visible');
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Scrolleamos solo la PRIMERA vez. En cambios posteriores el usuario
+      // ya tiene el detail a la vista y un autoscroll molestaría.
+      if (firstShow) {
+        section.scrollIntoView({
+          behavior: reduceMotion ? 'auto' : 'smooth',
+          block: 'start',
+        });
+        firstShow = false;
+      }
+    }
+
+    /* ── Boot / Loading / Error ──────────────────────────────────── */
+    const boot     = $('boot');
+    const bootText = $('bootText');
+
+    function hideBoot() {
+      boot.classList.add('hidden');
+      setTimeout(() => boot.remove(), reduceMotion ? 0 : 400);
+    }
+
+    function showError(msg) {
+      boot.querySelector('.boot-ball')?.remove();
+      bootText.remove();
+      const err = document.createElement('div');
+      err.className = 'boot-error';
+      err.innerHTML = `
+        <div class="err-title">No pudimos abrir el archivo</div>
+        <div class="err-body">
+          ${esc(msg)}<br><br>
+          Verificá que exista <code>data/historico.json</code>
+          (corré <code>python generar_json.py</code> en la carpeta del proyecto).
+        </div>`;
+      boot.appendChild(err);
     }
 
     /* ── Init ────────────────────────────────────────────────────── */
     fetch('data/historico.json')
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then(data => {
+        cacheNodes();
         const global = data.global;
         const years  = data.years;
 
-        // Hero meta — desde JSON
-        animCount(document.getElementById('meta-cups'),    global.total_tournaments);
-        animCount(document.getElementById('meta-matches'), global.total_matches);
-        animCount(document.getElementById('meta-goals'),   global.total_goals);
+        animCount(E['meta-cups'],    global.total_tournaments);
+        animCount(E['meta-matches'], global.total_matches);
+        animCount(E['meta-goals'],   global.total_goals);
 
-        // Marquee
         renderMarquee(years);
-
-        // Rankings
         renderRanking('list-countries', global.top_countries,
           d => d.country, d => d.appearances);
         renderRanking('list-players', global.top_players,
@@ -1407,29 +1595,29 @@
           d => d.coach, d => d.matches, d => d.team);
         renderGoalDist(global.goal_distribution);
 
-        // Dropdown
-        const sel = document.getElementById('yearSelect');
-        Object.keys(years)
-          .sort((a, b) => Number(a) - Number(b))
-          .forEach(y => {
-            const opt = document.createElement('option');
-            opt.value = y;
-            opt.textContent = `${y}  ·  ${years[y].host}`;
-            sel.appendChild(opt);
-          });
+        const sel = $('yearSelect');
+        const sorted = Object.keys(years).sort((a, b) => Number(a) - Number(b));
+        const frag = document.createDocumentFragment();
+        sorted.forEach(y => {
+          const opt = document.createElement('option');
+          opt.value = y;
+          opt.textContent = `${y}  ·  ${years[y].host}`;
+          frag.appendChild(opt);
+        });
+        sel.appendChild(frag);
 
         sel.addEventListener('change', () => {
           const y = sel.value;
           if (y && years[y]) showYear(years[y]);
-          else document.getElementById('yearDetail').classList.remove('visible');
+          else E.yearDetail.classList.remove('visible');
         });
 
         setupTabs();
+        hideBoot();
       })
       .catch(err => {
-        console.error(err);
-        document.querySelector('.explorer-sub').textContent =
-          '⚠ No se pudo cargar data/historico.json — ejecutá generar_json.py primero.';
+        console.error('No se pudo cargar el archivo:', err);
+        showError(err.message || 'Error desconocido al pedir los datos.');
       });
   </script>
 </body>
