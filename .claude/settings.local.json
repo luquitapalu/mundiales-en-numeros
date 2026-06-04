@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx skills *)",
+      "Bash(python -c \"import pandas as pd; df = pd.read_csv\\('WorldCupMatches2.csv'\\); print\\(df.dtypes\\); print\\('---'\\); print\\(df.head\\(3\\).to_string\\(\\)\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(python generar_json.py)",
+      "Bash(python -c \"import json; d = json.load\\(open\\('data/historico.json', encoding='utf-8'\\)\\); print\\(json.dumps\\(d['2022'], ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(python -c \"import pandas as pd; wc=pd.read_csv\\('WorldCups.csv',encoding='latin-1'\\); print\\(list\\(wc.columns\\)\\); print\\(wc[['Year','Country']].to_string\\(\\)\\)\")",
+      "Bash(python -c \"import sys; sys.stdout.buffer.write\\(sys.stdin.buffer.read\\(\\)\\)\")"
+    ]
+  }
+}

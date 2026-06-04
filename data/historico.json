@@ -1,0 +1,1144 @@
+{
+  "global": {
+    "total_tournaments": 22,
+    "total_matches": 964,
+    "total_goals": 2720,
+    "top_countries": [
+      {
+        "country": "Brazil",
+        "appearances": 22
+      },
+      {
+        "country": "Argentina",
+        "appearances": 18
+      },
+      {
+        "country": "Italy",
+        "appearances": 18
+      },
+      {
+        "country": "Mexico",
+        "appearances": 17
+      },
+      {
+        "country": "France",
+        "appearances": 16
+      }
+    ],
+    "top_players": [
+      {
+        "player": "Messi",
+        "team": "Argentina",
+        "matches": 26
+      },
+      {
+        "player": "Matthäus",
+        "team": "Germany",
+        "matches": 25
+      },
+      {
+        "player": "Klose",
+        "team": "Germany",
+        "matches": 24
+      },
+      {
+        "player": "Maldini",
+        "team": "Italy",
+        "matches": 23
+      },
+      {
+        "player": "Ronaldo",
+        "team": "Portugal",
+        "matches": 22
+      }
+    ],
+    "top_scorers": [
+      {
+        "player": "Klose",
+        "team": "Germany",
+        "goals": 16
+      },
+      {
+        "player": "Ronaldo",
+        "team": "Brazil",
+        "goals": 15
+      },
+      {
+        "player": "Müller",
+        "team": "Germany (W)",
+        "goals": 14
+      },
+      {
+        "player": "Messi",
+        "team": "Argentina",
+        "goals": 13
+      },
+      {
+        "player": "Fontaine",
+        "team": "France",
+        "goals": 13
+      }
+    ],
+    "top_coaches": [
+      {
+        "coach": "Schön",
+        "team": "Germany (W)",
+        "matches": 25
+      },
+      {
+        "coach": "Parreira",
+        "team": "Brazil",
+        "matches": 24
+      },
+      {
+        "coach": "Scolari",
+        "team": "Brazil",
+        "matches": 21
+      },
+      {
+        "coach": "Tabárez",
+        "team": "Uruguay",
+        "matches": 20
+      },
+      {
+        "coach": "Zagallo",
+        "team": "Brazil",
+        "matches": 20
+      }
+    ],
+    "goal_distribution": [
+      {
+        "range": "0-10",
+        "goals": 197
+      },
+      {
+        "range": "10-20",
+        "goals": 269
+      },
+      {
+        "range": "20-30",
+        "goals": 252
+      },
+      {
+        "range": "30-40",
+        "goals": 249
+      },
+      {
+        "range": "40-50",
+        "goals": 278
+      },
+      {
+        "range": "50-60",
+        "goals": 307
+      },
+      {
+        "range": "60-70",
+        "goals": 316
+      },
+      {
+        "range": "70-80",
+        "goals": 318
+      },
+      {
+        "range": "80-90",
+        "goals": 352
+      },
+      {
+        "range": "90+",
+        "goals": 182
+      }
+    ]
+  },
+  "years": {
+    "1930": {
+      "year": 1930,
+      "host": "Uruguay",
+      "champion": "Uruguay",
+      "champion_manager": "Alberto Suppici",
+      "champion_goals": 15,
+      "champion_matches_played": 4,
+      "champion_matches_won": 4,
+      "champion_top_scorer": {
+        "name": "Pedro Cea",
+        "goals": 5
+      },
+      "total_matches": 18,
+      "total_goals": 70,
+      "top_stadium": "Estadio Centenario",
+      "top_stadium_matches": 10,
+      "stats_matches": {
+        "total": 18,
+        "extra_time": 0,
+        "pct_extra_time": 0.0,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 70,
+        "penalty_goals": 1,
+        "pct_penalty": 1.4,
+        "top_scorer": {
+          "name": "Guillermo Stábile",
+          "team": "Argentina",
+          "goals": 8
+        }
+      },
+      "stats_cards": {
+        "yellow": 0,
+        "red": 0,
+        "direct_red": 0,
+        "pct_direct_red": 0.0
+      },
+      "stats_referee": {
+        "name": "John Langenus",
+        "country": "Belgium",
+        "matches": 4
+      }
+    },
+    "1934": {
+      "year": 1934,
+      "host": "Italy",
+      "champion": "Italy",
+      "champion_manager": "Vittorio Pozzo",
+      "champion_goals": 12,
+      "champion_matches_played": 5,
+      "champion_matches_won": 4,
+      "champion_top_scorer": {
+        "name": "Angelo Schiavio",
+        "goals": 4
+      },
+      "total_matches": 17,
+      "total_goals": 70,
+      "top_stadium": "Stadio Giovanni Berta",
+      "top_stadium_matches": 3,
+      "stats_matches": {
+        "total": 17,
+        "extra_time": 3,
+        "pct_extra_time": 17.6,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 70,
+        "penalty_goals": 3,
+        "pct_penalty": 4.3,
+        "top_scorer": {
+          "name": "Oldřich Nejedlý",
+          "team": "Czechoslovakia",
+          "goals": 5
+        }
+      },
+      "stats_cards": {
+        "yellow": 0,
+        "red": 0,
+        "direct_red": 0,
+        "pct_direct_red": 0.0
+      },
+      "stats_referee": {
+        "name": "Rinaldo Barlassina",
+        "country": "Italy",
+        "matches": 3
+      }
+    },
+    "1938": {
+      "year": 1938,
+      "host": "France",
+      "champion": "Italy",
+      "champion_manager": "Vittorio Pozzo",
+      "champion_goals": 11,
+      "champion_matches_played": 4,
+      "champion_matches_won": 4,
+      "champion_top_scorer": {
+        "name": "Silvio Piola",
+        "goals": 5
+      },
+      "total_matches": 18,
+      "total_goals": 84,
+      "top_stadium": "Parc des Princes",
+      "top_stadium_matches": 3,
+      "stats_matches": {
+        "total": 18,
+        "extra_time": 6,
+        "pct_extra_time": 33.3,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 84,
+        "penalty_goals": 3,
+        "pct_penalty": 3.6,
+        "top_scorer": {
+          "name": "Leônidas",
+          "team": "Brazil",
+          "goals": 7
+        }
+      },
+      "stats_cards": {
+        "yellow": 0,
+        "red": 0,
+        "direct_red": 0,
+        "pct_direct_red": 0.0
+      },
+      "stats_referee": {
+        "name": "Georges Capdeville",
+        "country": "France",
+        "matches": 2
+      }
+    },
+    "1950": {
+      "year": 1950,
+      "host": "Brazil",
+      "champion": "Uruguay",
+      "champion_manager": "Juan López",
+      "champion_goals": 15,
+      "champion_matches_played": 4,
+      "champion_matches_won": 3,
+      "champion_top_scorer": {
+        "name": "Oscar Míguez",
+        "goals": 5
+      },
+      "total_matches": 22,
+      "total_goals": 88,
+      "top_stadium": "Estádio do Maracanã",
+      "top_stadium_matches": 8,
+      "stats_matches": {
+        "total": 22,
+        "extra_time": 0,
+        "pct_extra_time": 0.0,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 88,
+        "penalty_goals": 3,
+        "pct_penalty": 3.4,
+        "top_scorer": {
+          "name": "Ademir",
+          "team": "Brazil",
+          "goals": 9
+        }
+      },
+      "stats_cards": {
+        "yellow": 0,
+        "red": 0,
+        "direct_red": 0,
+        "pct_direct_red": 0.0
+      },
+      "stats_referee": {
+        "name": "Giovanni Galeati",
+        "country": "Italy",
+        "matches": 3
+      }
+    },
+    "1954": {
+      "year": 1954,
+      "host": "Switzerland",
+      "champion": "West Germany",
+      "champion_manager": "Sepp Herberger",
+      "champion_goals": 25,
+      "champion_matches_played": 6,
+      "champion_matches_won": 5,
+      "champion_top_scorer": {
+        "name": "Max Morlock",
+        "goals": 6
+      },
+      "total_matches": 26,
+      "total_goals": 140,
+      "top_stadium": "St. Jakob Stadium",
+      "top_stadium_matches": 6,
+      "stats_matches": {
+        "total": 26,
+        "extra_time": 3,
+        "pct_extra_time": 11.5,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 140,
+        "penalty_goals": 7,
+        "pct_penalty": 5.0,
+        "top_scorer": {
+          "name": "Sándor Kocsis",
+          "team": "Hungary",
+          "goals": 11
+        }
+      },
+      "stats_cards": {
+        "yellow": 0,
+        "red": 0,
+        "direct_red": 0,
+        "pct_direct_red": 0.0
+      },
+      "stats_referee": {
+        "name": "Sandy Griffiths",
+        "country": "Wales",
+        "matches": 3
+      }
+    },
+    "1958": {
+      "year": 1958,
+      "host": "Sweden",
+      "champion": "Brazil",
+      "champion_manager": "Vicente Feola",
+      "champion_goals": 16,
+      "champion_matches_played": 6,
+      "champion_matches_won": 5,
+      "champion_top_scorer": {
+        "name": "Pelé",
+        "goals": 6
+      },
+      "total_matches": 35,
+      "total_goals": 126,
+      "top_stadium": "Råsunda Stadium",
+      "top_stadium_matches": 8,
+      "stats_matches": {
+        "total": 35,
+        "extra_time": 1,
+        "pct_extra_time": 2.9,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 126,
+        "penalty_goals": 7,
+        "pct_penalty": 5.6,
+        "top_scorer": {
+          "name": "Just Fontaine",
+          "team": "France",
+          "goals": 13
+        }
+      },
+      "stats_cards": {
+        "yellow": 0,
+        "red": 0,
+        "direct_red": 0,
+        "pct_direct_red": 0.0
+      },
+      "stats_referee": {
+        "name": "Maurice Guigue",
+        "country": "France",
+        "matches": 4
+      }
+    },
+    "1962": {
+      "year": 1962,
+      "host": "Chile",
+      "champion": "Brazil",
+      "champion_manager": "Aymoré Moreira",
+      "champion_goals": 14,
+      "champion_matches_played": 6,
+      "champion_matches_won": 5,
+      "champion_top_scorer": {
+        "name": "Garrincha",
+        "goals": 4
+      },
+      "total_matches": 32,
+      "total_goals": 89,
+      "top_stadium": "Estadio Nacional",
+      "top_stadium_matches": 10,
+      "stats_matches": {
+        "total": 32,
+        "extra_time": 0,
+        "pct_extra_time": 0.0,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 89,
+        "penalty_goals": 8,
+        "pct_penalty": 9.0,
+        "top_scorer": {
+          "name": "Leonel Sánchez",
+          "team": "Chile",
+          "goals": 4
+        }
+      },
+      "stats_cards": {
+        "yellow": 0,
+        "red": 0,
+        "direct_red": 0,
+        "pct_direct_red": 0.0
+      },
+      "stats_referee": {
+        "name": "Nikolai Levnikov",
+        "country": "Soviet Union",
+        "matches": 4
+      }
+    },
+    "1966": {
+      "year": 1966,
+      "host": "England",
+      "champion": "England",
+      "champion_manager": "Alf Ramsey",
+      "champion_goals": 11,
+      "champion_matches_played": 6,
+      "champion_matches_won": 5,
+      "champion_top_scorer": {
+        "name": "Geoff Hurst",
+        "goals": 4
+      },
+      "total_matches": 32,
+      "total_goals": 89,
+      "top_stadium": "Wembley Stadium",
+      "top_stadium_matches": 9,
+      "stats_matches": {
+        "total": 32,
+        "extra_time": 1,
+        "pct_extra_time": 3.1,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 89,
+        "penalty_goals": 8,
+        "pct_penalty": 9.0,
+        "top_scorer": {
+          "name": "Eusébio",
+          "team": "Portugal",
+          "goals": 9
+        }
+      },
+      "stats_cards": {
+        "yellow": 0,
+        "red": 0,
+        "direct_red": 0,
+        "pct_direct_red": 0.0
+      },
+      "stats_referee": {
+        "name": "Menachem Ashkenazi",
+        "country": "Israel",
+        "matches": 2
+      }
+    },
+    "1970": {
+      "year": 1970,
+      "host": "Mexico",
+      "champion": "Brazil",
+      "champion_manager": "Mário Zagallo",
+      "champion_goals": 19,
+      "champion_matches_played": 6,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "Jairzinho",
+        "goals": 7
+      },
+      "total_matches": 32,
+      "total_goals": 95,
+      "top_stadium": "Estadio Azteca",
+      "top_stadium_matches": 10,
+      "stats_matches": {
+        "total": 32,
+        "extra_time": 3,
+        "pct_extra_time": 9.4,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 95,
+        "penalty_goals": 5,
+        "pct_penalty": 5.3,
+        "top_scorer": {
+          "name": "Gerd Müller",
+          "team": "West Germany",
+          "goals": 10
+        }
+      },
+      "stats_cards": {
+        "yellow": 52,
+        "red": 0,
+        "direct_red": 0,
+        "pct_direct_red": 0.0
+      },
+      "stats_referee": {
+        "name": "Rudi Glöckner",
+        "country": "East Germany",
+        "matches": 2
+      }
+    },
+    "1974": {
+      "year": 1974,
+      "host": "West Germany",
+      "champion": "West Germany",
+      "champion_manager": "Helmut Schön",
+      "champion_goals": 13,
+      "champion_matches_played": 7,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "Gerd Müller",
+        "goals": 4
+      },
+      "total_matches": 38,
+      "total_goals": 97,
+      "top_stadium": "Olympiastadion",
+      "top_stadium_matches": 8,
+      "stats_matches": {
+        "total": 38,
+        "extra_time": 0,
+        "pct_extra_time": 0.0,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 97,
+        "penalty_goals": 6,
+        "pct_penalty": 6.2,
+        "top_scorer": {
+          "name": "Grzegorz Lato",
+          "team": "Poland",
+          "goals": 7
+        }
+      },
+      "stats_cards": {
+        "yellow": 87,
+        "red": 5,
+        "direct_red": 5,
+        "pct_direct_red": 100.0
+      },
+      "stats_referee": {
+        "name": "Jack Taylor",
+        "country": "England",
+        "matches": 3
+      }
+    },
+    "1978": {
+      "year": 1978,
+      "host": "Argentina",
+      "champion": "Argentina",
+      "champion_manager": "César Luis Menotti",
+      "champion_goals": 15,
+      "champion_matches_played": 7,
+      "champion_matches_won": 5,
+      "champion_top_scorer": {
+        "name": "Mario Kempes",
+        "goals": 6
+      },
+      "total_matches": 38,
+      "total_goals": 102,
+      "top_stadium": "Estadio Monumental",
+      "top_stadium_matches": 9,
+      "stats_matches": {
+        "total": 38,
+        "extra_time": 1,
+        "pct_extra_time": 2.6,
+        "penalty_shootout": 0,
+        "pct_penalty_of_extra": 0.0
+      },
+      "stats_goals": {
+        "total": 102,
+        "penalty_goals": 12,
+        "pct_penalty": 11.8,
+        "top_scorer": {
+          "name": "Mario Kempes",
+          "team": "Argentina",
+          "goals": 6
+        }
+      },
+      "stats_cards": {
+        "yellow": 46,
+        "red": 3,
+        "direct_red": 3,
+        "pct_direct_red": 100.0
+      },
+      "stats_referee": {
+        "name": "Abraham Klein",
+        "country": "Israel",
+        "matches": 3
+      }
+    },
+    "1982": {
+      "year": 1982,
+      "host": "Spain",
+      "champion": "Italy",
+      "champion_manager": "Enzo Bearzot",
+      "champion_goals": 12,
+      "champion_matches_played": 7,
+      "champion_matches_won": 4,
+      "champion_top_scorer": {
+        "name": "Paolo Rossi",
+        "goals": 6
+      },
+      "total_matches": 52,
+      "total_goals": 146,
+      "top_stadium": "Camp Nou",
+      "top_stadium_matches": 5,
+      "stats_matches": {
+        "total": 52,
+        "extra_time": 1,
+        "pct_extra_time": 1.9,
+        "penalty_shootout": 1,
+        "pct_penalty_of_extra": 100.0
+      },
+      "stats_goals": {
+        "total": 146,
+        "penalty_goals": 8,
+        "pct_penalty": 5.5,
+        "top_scorer": {
+          "name": "Paolo Rossi",
+          "team": "Italy",
+          "goals": 6
+        }
+      },
+      "stats_cards": {
+        "yellow": 99,
+        "red": 5,
+        "direct_red": 5,
+        "pct_direct_red": 100.0
+      },
+      "stats_referee": {
+        "name": "Paolo Casarin",
+        "country": "Italy",
+        "matches": 2
+      }
+    },
+    "1986": {
+      "year": 1986,
+      "host": "Mexico",
+      "champion": "Argentina",
+      "champion_manager": "Carlos Bilardo",
+      "champion_goals": 14,
+      "champion_matches_played": 7,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "Diego Maradona",
+        "goals": 5
+      },
+      "total_matches": 52,
+      "total_goals": 132,
+      "top_stadium": "Estadio Azteca",
+      "top_stadium_matches": 9,
+      "stats_matches": {
+        "total": 52,
+        "extra_time": 5,
+        "pct_extra_time": 9.6,
+        "penalty_shootout": 3,
+        "pct_penalty_of_extra": 60.0
+      },
+      "stats_goals": {
+        "total": 132,
+        "penalty_goals": 12,
+        "pct_penalty": 9.1,
+        "top_scorer": {
+          "name": "Gary Lineker",
+          "team": "England",
+          "goals": 6
+        }
+      },
+      "stats_cards": {
+        "yellow": 138,
+        "red": 8,
+        "direct_red": 4,
+        "pct_direct_red": 50.0
+      },
+      "stats_referee": {
+        "name": "Luigi Agnolin",
+        "country": "Italy",
+        "matches": 3
+      }
+    },
+    "1990": {
+      "year": 1990,
+      "host": "Italy",
+      "champion": "West Germany",
+      "champion_manager": "Franz Beckenbauer",
+      "champion_goals": 15,
+      "champion_matches_played": 7,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "Lothar Matthäus",
+        "goals": 4
+      },
+      "total_matches": 52,
+      "total_goals": 115,
+      "top_stadium": "San Siro",
+      "top_stadium_matches": 6,
+      "stats_matches": {
+        "total": 52,
+        "extra_time": 8,
+        "pct_extra_time": 15.4,
+        "penalty_shootout": 4,
+        "pct_penalty_of_extra": 50.0
+      },
+      "stats_goals": {
+        "total": 115,
+        "penalty_goals": 13,
+        "pct_penalty": 11.3,
+        "top_scorer": {
+          "name": "Salvatore Schillaci",
+          "team": "Italy",
+          "goals": 6
+        }
+      },
+      "stats_cards": {
+        "yellow": 169,
+        "red": 16,
+        "direct_red": 10,
+        "pct_direct_red": 62.5
+      },
+      "stats_referee": {
+        "name": "José Roberto Wright",
+        "country": "Brazil",
+        "matches": 4
+      }
+    },
+    "1994": {
+      "year": 1994,
+      "host": "United States",
+      "champion": "Brazil",
+      "champion_manager": "Carlos Alberto Parreira",
+      "champion_goals": 11,
+      "champion_matches_played": 7,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "Romário",
+        "goals": 5
+      },
+      "total_matches": 52,
+      "total_goals": 141,
+      "top_stadium": "Rose Bowl",
+      "top_stadium_matches": 8,
+      "stats_matches": {
+        "total": 52,
+        "extra_time": 4,
+        "pct_extra_time": 7.7,
+        "penalty_shootout": 3,
+        "pct_penalty_of_extra": 75.0
+      },
+      "stats_goals": {
+        "total": 141,
+        "penalty_goals": 15,
+        "pct_penalty": 10.6,
+        "top_scorer": {
+          "name": "Oleg Salenko",
+          "team": "Russia",
+          "goals": 6
+        }
+      },
+      "stats_cards": {
+        "yellow": 228,
+        "red": 15,
+        "direct_red": 8,
+        "pct_direct_red": 53.3
+      },
+      "stats_referee": {
+        "name": "José Torres Cadena",
+        "country": "Colombia",
+        "matches": 4
+      }
+    },
+    "1998": {
+      "year": 1998,
+      "host": "France",
+      "champion": "France",
+      "champion_manager": "Aimé Jacquet",
+      "champion_goals": 15,
+      "champion_matches_played": 7,
+      "champion_matches_won": 7,
+      "champion_top_scorer": {
+        "name": "Thierry Henry",
+        "goals": 3
+      },
+      "total_matches": 64,
+      "total_goals": 171,
+      "top_stadium": "Stade de France",
+      "top_stadium_matches": 9,
+      "stats_matches": {
+        "total": 64,
+        "extra_time": 4,
+        "pct_extra_time": 6.2,
+        "penalty_shootout": 3,
+        "pct_penalty_of_extra": 75.0
+      },
+      "stats_goals": {
+        "total": 171,
+        "penalty_goals": 17,
+        "pct_penalty": 9.9,
+        "top_scorer": {
+          "name": "Davor Šuker",
+          "team": "Croatia",
+          "goals": 6
+        }
+      },
+      "stats_cards": {
+        "yellow": 254,
+        "red": 22,
+        "direct_red": 18,
+        "pct_direct_red": 81.8
+      },
+      "stats_referee": {
+        "name": "Gamal Al-Ghandour",
+        "country": "Egypt",
+        "matches": 3
+      }
+    },
+    "2002": {
+      "year": 2002,
+      "host": "Korea, Japan",
+      "champion": "Brazil",
+      "champion_manager": "Luiz Felipe Scolari",
+      "champion_goals": 18,
+      "champion_matches_played": 7,
+      "champion_matches_won": 7,
+      "champion_top_scorer": {
+        "name": "Ronaldo",
+        "goals": 8
+      },
+      "total_matches": 64,
+      "total_goals": 161,
+      "top_stadium": "Saitama Stadium",
+      "top_stadium_matches": 4,
+      "stats_matches": {
+        "total": 64,
+        "extra_time": 5,
+        "pct_extra_time": 7.8,
+        "penalty_shootout": 2,
+        "pct_penalty_of_extra": 40.0
+      },
+      "stats_goals": {
+        "total": 161,
+        "penalty_goals": 13,
+        "pct_penalty": 8.1,
+        "top_scorer": {
+          "name": "Ronaldo",
+          "team": "Brazil",
+          "goals": 8
+        }
+      },
+      "stats_cards": {
+        "yellow": 266,
+        "red": 17,
+        "direct_red": 11,
+        "pct_direct_red": 64.7
+      },
+      "stats_referee": {
+        "name": "Gamal Al-Ghandour",
+        "country": "Egypt",
+        "matches": 3
+      }
+    },
+    "2006": {
+      "year": 2006,
+      "host": "Germany",
+      "champion": "Italy",
+      "champion_manager": "Marcello Lippi",
+      "champion_goals": 12,
+      "champion_matches_played": 7,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "Marco Materazzi",
+        "goals": 2
+      },
+      "total_matches": 64,
+      "total_goals": 147,
+      "top_stadium": "Allianz Arena",
+      "top_stadium_matches": 6,
+      "stats_matches": {
+        "total": 64,
+        "extra_time": 6,
+        "pct_extra_time": 9.4,
+        "penalty_shootout": 4,
+        "pct_penalty_of_extra": 66.7
+      },
+      "stats_goals": {
+        "total": 147,
+        "penalty_goals": 13,
+        "pct_penalty": 8.8,
+        "top_scorer": {
+          "name": "Miroslav Klose",
+          "team": "Germany",
+          "goals": 5
+        }
+      },
+      "stats_cards": {
+        "yellow": 326,
+        "red": 28,
+        "direct_red": 9,
+        "pct_direct_red": 32.1
+      },
+      "stats_referee": {
+        "name": "Benito Archundia",
+        "country": "Mexico",
+        "matches": 5
+      }
+    },
+    "2010": {
+      "year": 2010,
+      "host": "South Africa",
+      "champion": "Spain",
+      "champion_manager": "Vicente del Bosque",
+      "champion_goals": 8,
+      "champion_matches_played": 7,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "David Villa",
+        "goals": 5
+      },
+      "total_matches": 64,
+      "total_goals": 145,
+      "top_stadium": "Soccer City",
+      "top_stadium_matches": 8,
+      "stats_matches": {
+        "total": 64,
+        "extra_time": 4,
+        "pct_extra_time": 6.2,
+        "penalty_shootout": 2,
+        "pct_penalty_of_extra": 50.0
+      },
+      "stats_goals": {
+        "total": 145,
+        "penalty_goals": 9,
+        "pct_penalty": 6.2,
+        "top_scorer": {
+          "name": "Thomas Müller",
+          "team": "Germany",
+          "goals": 5
+        }
+      },
+      "stats_cards": {
+        "yellow": 254,
+        "red": 17,
+        "direct_red": 9,
+        "pct_direct_red": 52.9
+      },
+      "stats_referee": {
+        "name": "Ravshan Irmatov",
+        "country": "Uzbekistan",
+        "matches": 5
+      }
+    },
+    "2014": {
+      "year": 2014,
+      "host": "Brazil",
+      "champion": "Germany",
+      "champion_manager": "Joachim Löw",
+      "champion_goals": 18,
+      "champion_matches_played": 7,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "Thomas Müller",
+        "goals": 5
+      },
+      "total_matches": 64,
+      "total_goals": 171,
+      "top_stadium": "Estádio Nacional",
+      "top_stadium_matches": 7,
+      "stats_matches": {
+        "total": 64,
+        "extra_time": 8,
+        "pct_extra_time": 12.5,
+        "penalty_shootout": 4,
+        "pct_penalty_of_extra": 50.0
+      },
+      "stats_goals": {
+        "total": 171,
+        "penalty_goals": 12,
+        "pct_penalty": 7.0,
+        "top_scorer": {
+          "name": "James Rodríguez",
+          "team": "Colombia",
+          "goals": 6
+        }
+      },
+      "stats_cards": {
+        "yellow": 184,
+        "red": 10,
+        "direct_red": 7,
+        "pct_direct_red": 70.0
+      },
+      "stats_referee": {
+        "name": "Djamel Haimoudi",
+        "country": "Algeria",
+        "matches": 4
+      }
+    },
+    "2018": {
+      "year": 2018,
+      "host": "Russia",
+      "champion": "France",
+      "champion_manager": "Didier Deschamps",
+      "champion_goals": 14,
+      "champion_matches_played": 7,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "Antoine Griezmann",
+        "goals": 4
+      },
+      "total_matches": 64,
+      "total_goals": 169,
+      "top_stadium": "Luzhniki Stadium",
+      "top_stadium_matches": 7,
+      "stats_matches": {
+        "total": 64,
+        "extra_time": 5,
+        "pct_extra_time": 7.8,
+        "penalty_shootout": 4,
+        "pct_penalty_of_extra": 80.0
+      },
+      "stats_goals": {
+        "total": 169,
+        "penalty_goals": 22,
+        "pct_penalty": 13.0,
+        "top_scorer": {
+          "name": "Harry Kane",
+          "team": "England",
+          "goals": 6
+        }
+      },
+      "stats_cards": {
+        "yellow": 221,
+        "red": 4,
+        "direct_red": 2,
+        "pct_direct_red": 50.0
+      },
+      "stats_referee": {
+        "name": "Néstor Pitana",
+        "country": "Argentina",
+        "matches": 5
+      }
+    },
+    "2022": {
+      "year": 2022,
+      "host": "Qatar",
+      "champion": "Argentina",
+      "champion_manager": "Lionel Scaloni",
+      "champion_goals": 15,
+      "champion_matches_played": 7,
+      "champion_matches_won": 6,
+      "champion_top_scorer": {
+        "name": "Lionel Messi",
+        "goals": 7
+      },
+      "total_matches": 64,
+      "total_goals": 172,
+      "top_stadium": "Lusail Stadium",
+      "top_stadium_matches": 10,
+      "stats_matches": {
+        "total": 64,
+        "extra_time": 5,
+        "pct_extra_time": 7.8,
+        "penalty_shootout": 5,
+        "pct_penalty_of_extra": 100.0
+      },
+      "stats_goals": {
+        "total": 172,
+        "penalty_goals": 17,
+        "pct_penalty": 9.9,
+        "top_scorer": {
+          "name": "Kylian Mbappé",
+          "team": "France",
+          "goals": 8
+        }
+      },
+      "stats_cards": {
+        "yellow": 224,
+        "red": 4,
+        "direct_red": 1,
+        "pct_direct_red": 25.0
+      },
+      "stats_referee": {
+        "name": "César Arturo Ramos",
+        "country": "Mexico",
+        "matches": 4
+      }
+    }
+  }
+}

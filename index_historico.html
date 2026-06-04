@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historia en números de los Mundiales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Tokens ────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:    #FFF6E3;
+      --paper-2:  #FFFBF0;
+      --ink:      #0A0A12;
+      --ink-soft: #4D4D5C;
+      --rule:     #1A1A24;
+
+      --magenta:  #FF2D6F;
+      --azul:     #1F3DE0;
+      --mostaza:  #FFCB1F;
+      --verde:    #0DA86A;
+      --lila:     #7259FF;
+      --naranja:  #FF6B1A;
+
+      --display:  'Anton', sans-serif;
+      --body:     'Inter', system-ui, sans-serif;
+      --serif:    'Fraunces', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      color: var(--ink);
+      background: var(--paper);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1340px; margin: 0 auto; padding: 0 28px; }
+    .ital { font-family: var(--serif); font-style: italic; font-weight: 500; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .eyebrow .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--magenta);
+      box-shadow: 0 0 0 4px rgba(255,45,111,.18);
+    }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      padding: 36px 0 28px;
+      border-bottom: 3px solid var(--rule);
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 44px;
+      padding: 0 28px;
+      max-width: 1340px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--display);
+      font-size: 1.35rem;
+      letter-spacing: .02em;
+    }
+    .brand-ball {
+      width: 30px; height: 30px;
+      background: var(--ink);
+      color: var(--paper);
+      display: grid; place-items: center;
+      border-radius: 50%;
+      font-family: var(--body);
+      font-weight: 800;
+      font-size: .85rem;
+    }
+    .pill {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 100px;
+      background: var(--mostaza);
+    }
+
+    .hero-title {
+      padding: 0 28px;
+      max-width: 1340px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(3.2rem, 13.5vw, 12rem);
+      line-height: .82;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+    }
+    h1 .row { display: block; }
+    h1 .num {
+      color: var(--magenta);
+      font-style: italic;
+      font-family: var(--display);
+      display: inline-block;
+      transform: translateY(-.04em) skewX(-6deg);
+      margin: 0 .08em;
+    }
+    h1 .accent-magenta { color: var(--magenta); }
+    h1 .underline {
+      background: linear-gradient(180deg, transparent 70%, var(--mostaza) 70%);
+      padding: 0 .05em;
+    }
+
+    .hero-sub-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      margin-top: 36px;
+      align-items: end;
+      padding-bottom: 6px;
+    }
+    .hero-sub {
+      max-width: 520px;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .hero-sub .ital { color: var(--ink-soft); }
+
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      font-family: var(--display);
+      font-size: 1.05rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .hero-meta .meta-block {
+      padding-right: 24px;
+      border-right: 2px solid var(--ink);
+    }
+    .hero-meta .meta-block:last-child { border-right: none; padding-right: 0; }
+    .hero-meta .meta-val { color: var(--magenta); font-size: 1.4rem; }
+
+    @media (max-width: 720px) {
+      .hero-sub-row { grid-template-columns: 1fr; }
+      .hero-meta { flex-wrap: wrap; gap: 14px; }
+      .hero-meta .meta-block { padding-right: 14px; }
+    }
+
+    /* ─── MARQUEE ───────────────────────────────────────────────── */
+    .strip {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 18px 0;
+      overflow: hidden;
+      border-bottom: 3px solid var(--rule);
+    }
+    .strip-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 80s linear infinite;
+      font-family: var(--display);
+      font-size: 1.5rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      will-change: transform;
+    }
+    /* margin-right en cada item — no gap — para que translateX(-50%) caiga
+       exactamente sobre el inicio del segundo set y el loop sea perfecto. */
+    .strip-track > span {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin-right: 56px;
+      flex-shrink: 0;
+    }
+    .strip-track .star { color: var(--mostaza); font-size: 1.2rem; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTIONS ──────────────────────────────────────────────── */
+    .section { padding: 72px 0 60px; }
+    .section + .section { border-top: 2px dashed var(--ink); }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .section-headline {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+      line-height: 1;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+    }
+    .section-headline .ital {
+      color: var(--ink-soft);
+      text-transform: none;
+      font-size: .65em;
+      display: block;
+      margin-top: 8px;
+    }
+    .section-mark {
+      font-family: var(--display);
+      font-size: 1rem;
+      letter-spacing: .14em;
+      padding: 6px 14px;
+      background: var(--paper-2);
+      border: 2px solid var(--ink);
+      border-radius: 100px;
+    }
+
+    /* ─── RANKINGS GRID ─────────────────────────────────────────── */
+    .rankings {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .rcard {
+      background: var(--paper-2);
+      border: 2px solid var(--ink);
+      border-radius: 24px;
+      padding: 26px;
+      position: relative;
+      box-shadow: 6px 6px 0 var(--ink);
+      transition: transform .15s ease, box-shadow .15s ease;
+      overflow: hidden;
+    }
+    .rcard:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+
+    .rcard-paises    { grid-column: span 3; background: #FFF1D1; }
+    .rcard-jugadores { grid-column: span 3; background: #E1ECFF; }
+    .rcard-goleadores{ grid-column: span 3; background: #FFE6E6; }
+    .rcard-coaches   { grid-column: span 3; background: #E2F6E8; }
+    .rcard-goles     { grid-column: span 12; background: #FFE3EB; }
+
+    @media (max-width: 1080px) {
+      .rcard-paises,
+      .rcard-jugadores,
+      .rcard-goleadores,
+      .rcard-coaches { grid-column: span 6; }
+    }
+    @media (max-width: 640px) {
+      .rcard-paises,
+      .rcard-jugadores,
+      .rcard-goleadores,
+      .rcard-coaches,
+      .rcard-goles { grid-column: span 12; }
+    }
+
+    .rcard-icon {
+      position: absolute;
+      top: 16px; right: 20px;
+      font-family: var(--display);
+      font-size: 3.4rem;
+      line-height: 1;
+      color: var(--ink);
+      opacity: .08;
+    }
+    .rcard-title {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      line-height: 1.05;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+      max-width: 78%;
+    }
+    .rcard-paises    .rcard-title em { color: var(--naranja); font-style: normal; }
+    .rcard-jugadores .rcard-title em { color: var(--azul);    font-style: normal; }
+    .rcard-goleadores .rcard-title em{ color: #C8203A;        font-style: normal; }
+    .rcard-coaches   .rcard-title em { color: var(--verde);   font-style: normal; }
+    .rcard-goles     .rcard-title em { color: var(--magenta); font-style: normal; }
+
+    .rcard-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: .9rem;
+      color: var(--ink-soft);
+      margin-top: 4px;
+      margin-bottom: 22px;
+    }
+
+    /* ─── Rank Items ────────────────────────────────────────────── */
+    .rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ritem {
+      display: grid;
+      grid-template-columns: 26px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      background: rgba(255,255,255,.55);
+      border: 1.5px solid var(--ink);
+      border-radius: 12px;
+    }
+    .ritem-rank {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .ritem-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      font-weight: 700;
+      font-size: .9rem;
+      line-height: 1.15;
+    }
+    .ritem-name > span:first-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .ritem-team {
+      font-family: var(--display);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      padding: 2px 7px;
+      border: 1.5px solid var(--ink);
+      border-radius: 6px;
+      background: var(--paper-2);
+      flex-shrink: 0;
+    }
+    .ritem-val {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      letter-spacing: .04em;
+      padding: 2px 10px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .rcard-paises    .ritem-val { background: var(--naranja); }
+    .rcard-jugadores .ritem-val { background: var(--azul); }
+    .rcard-goleadores .ritem-val{ background: #C8203A; }
+    .rcard-coaches   .ritem-val { background: var(--verde); }
+
+    /* ─── Distribución de goles ─────────────────────────────────── */
+    .dist {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 10px;
+      align-items: end;
+      margin-top: 20px;
+      padding: 24px 8px 6px;
+    }
+    .dcol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .dbar-wrap {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .dbar {
+      width: 78%;
+      background: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 10px 10px 0 0;
+      position: relative;
+      transition: height .8s cubic-bezier(.2,.8,.3,1.2);
+    }
+    .dbar::before {
+      content: attr(data-count);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translate(-50%, -6px);
+      font-family: var(--display);
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+    .dbar.c0 { background: var(--azul);    }
+    .dbar.c1 { background: #2A6BE5;       }
+    .dbar.c2 { background: var(--lila);    }
+    .dbar.c3 { background: #9059FF;       }
+    .dbar.c4 { background: var(--magenta); }
+    .dbar.c5 { background: #FF4D7A;       }
+    .dbar.c6 { background: var(--naranja); }
+    .dbar.c7 { background: #FF913A;       }
+    .dbar.c8 { background: var(--mostaza); }
+    .dbar.c9 { background: var(--verde);   }
+
+    .dlabel {
+      font-family: var(--display);
+      font-size: .85rem;
+      letter-spacing: .04em;
+      color: var(--ink);
+    }
+    @media (max-width: 720px) {
+      .dist { grid-template-columns: repeat(5, 1fr); }
+      .dbar-wrap { height: 130px; }
+    }
+
+    /* ─── EXPLORER ──────────────────────────────────────────────── */
+    .explorer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 96px 0 84px;
+      position: relative;
+      overflow: hidden;
+      border-top: 3px solid var(--rule);
+      border-bottom: 3px solid var(--rule);
+    }
+    .explorer::before, .explorer::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .explorer::before {
+      width: 460px; height: 460px;
+      top: -160px; left: -120px;
+      background: var(--magenta);
+      opacity: .35;
+      filter: blur(80px);
+    }
+    .explorer::after {
+      width: 520px; height: 520px;
+      bottom: -200px; right: -160px;
+      background: var(--azul);
+      opacity: .45;
+      filter: blur(90px);
+    }
+    .explorer-inner {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px;
+      text-align: center;
+    }
+    .explorer h2 {
+      font-family: var(--display);
+      font-size: clamp(2.6rem, 7vw, 5.6rem);
+      line-height: .9;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .explorer h2 .accent {
+      color: var(--mostaza);
+    }
+    .explorer-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: rgba(255,246,227,.75);
+      margin-bottom: 42px;
+    }
+
+    .select-wrap {
+      position: relative;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 28px; top: 50%;
+      width: 14px; height: 14px;
+      border-right: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+      transform: translateY(-65%) rotate(45deg);
+      pointer-events: none;
+    }
+    #yearSelect {
+      width: 100%;
+      appearance: none;
+      background: var(--mostaza);
+      color: var(--ink);
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      font-family: var(--display);
+      font-size: 1.5rem;
+      letter-spacing: .04em;
+      padding: 22px 64px 22px 28px;
+      cursor: pointer;
+      box-shadow: 8px 8px 0 var(--paper);
+      transition: transform .12s ease, box-shadow .12s ease;
+      outline: none;
+    }
+    #yearSelect:hover  { transform: translate(-2px,-2px); box-shadow: 12px 12px 0 var(--paper); }
+    #yearSelect:focus  { transform: translate(-2px,-2px); box-shadow: 12px 12px 0 var(--magenta); }
+    #yearSelect option { background: var(--paper); font-family: var(--body); font-size: 1rem; padding: 8px; }
+
+    /* ─── YEAR DETAIL ───────────────────────────────────────────── */
+    .detail {
+      padding: 80px 0 100px;
+      display: none;
+    }
+    .detail.visible { display: block; animation: fadeUp .5s ease both; }
+
+    .detail-head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 32px;
+    }
+    .detail-year {
+      font-family: var(--display);
+      font-size: clamp(5rem, 14vw, 11rem);
+      line-height: .85;
+      color: var(--ink);
+      letter-spacing: -.02em;
+    }
+    .detail-host {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--ink-soft);
+    }
+    .detail-host strong {
+      font-family: var(--body);
+      font-style: normal;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-size: 1rem;
+      padding: 4px 12px;
+      background: var(--mostaza);
+      border: 2px solid var(--ink);
+      border-radius: 100px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* Champion banner */
+    .champ {
+      background: var(--mostaza);
+      border: 3px solid var(--ink);
+      border-radius: 28px;
+      padding: 44px 48px;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+    .champ::before {
+      content: '★';
+      position: absolute;
+      top: -60px; right: -10px;
+      font-size: 22rem;
+      color: var(--ink);
+      opacity: .06;
+      line-height: 1;
+    }
+    .champ-info { min-width: 0; position: relative; }
+    .champ-eyebrow {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .champ-eyebrow .star { color: var(--magenta); font-size: 1rem; }
+    .champ-name {
+      font-family: var(--display);
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      line-height: .88;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .champ-name .underline {
+      background: linear-gradient(180deg, transparent 65%, var(--magenta) 65%);
+    }
+    .champ-stats {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 32px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 720px) {
+      .champ-stats { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+    .champ-stat-val {
+      font-family: var(--display);
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--ink);
+      display: block;
+    }
+    .champ-stat-val.name {
+      font-size: 1.4rem;
+      line-height: 1.05;
+    }
+    .champ-stat-label {
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-top: 6px;
+      display: block;
+    }
+    .champ-medal {
+      width: 200px; height: 200px;
+      background: var(--paper);
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      box-shadow: inset 0 0 0 8px var(--mostaza), inset 0 0 0 10px var(--ink);
+      transform: rotate(-6deg);
+      flex-shrink: 0;
+    }
+    .champ-medal-inner {
+      font-family: var(--display);
+      font-size: 1rem;
+      letter-spacing: .12em;
+      line-height: 1.05;
+      color: var(--ink);
+      transform: rotate(6deg);
+    }
+    .champ-medal-inner .big {
+      display: block;
+      font-size: 3rem;
+      color: var(--magenta);
+      line-height: .85;
+      margin: 4px 0;
+    }
+    @media (max-width: 760px) {
+      .champ { grid-template-columns: 1fr; padding: 36px 28px; text-align: center; }
+      .champ-medal { margin: 0 auto; width: 160px; height: 160px; }
+      .champ-eyebrow { justify-content: center; }
+    }
+
+    /* ─── TABS ──────────────────────────────────────────────────── */
+    .tabs-headline {
+      font-family: var(--display);
+      font-size: clamp(1.4rem, 2.6vw, 2rem);
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .tabs-headline .ital {
+      color: var(--ink-soft);
+      font-size: .6em;
+      text-transform: none;
+      margin-left: 12px;
+    }
+
+    .tab-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 640px) {
+      .tab-nav { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .tab-btn {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 16px 18px;
+      background: var(--paper-2);
+      border: 2.5px solid var(--ink);
+      border-radius: 16px;
+      cursor: pointer;
+      color: var(--ink);
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      box-shadow: 4px 4px 0 var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .tab-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .tab-btn.active {
+      transform: translate(2px, 2px);
+      box-shadow: 0 0 0 var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .tab-btn .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .tab-btn[data-tab="partidos"] .dot  { background: var(--magenta); }
+    .tab-btn[data-tab="goles"]    .dot  { background: var(--mostaza); }
+    .tab-btn[data-tab="tarjetas"] .dot  { background: var(--naranja); }
+    .tab-btn[data-tab="arbitros"] .dot  { background: var(--lila); }
+
+    .tab-pane {
+      display: none;
+      animation: fadeUp .35s ease both;
+    }
+    .tab-pane.active { display: grid; }
+
+    /* tarjetas internas de cada tab */
+    .pane-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 900px) { .pane-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .pane-grid { grid-template-columns: 1fr; } }
+    /* el atributo `hidden` se anula si el contenedor define display: grid/flex */
+    [hidden] { display: none !important; }
+
+    .tile {
+      border: 3px solid var(--ink);
+      border-radius: 22px;
+      padding: 28px 26px;
+      position: relative;
+      overflow: hidden;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .tile.t-magenta { background: var(--magenta); color: var(--paper); }
+    .tile.t-azul    { background: var(--azul);    color: var(--paper); }
+    .tile.t-mostaza { background: var(--mostaza); color: var(--ink); }
+    .tile.t-naranja { background: var(--naranja); color: var(--paper); }
+    .tile.t-lila    { background: var(--lila);    color: var(--paper); }
+    .tile.t-verde   { background: var(--verde);   color: var(--paper); }
+    .tile.t-paper   { background: var(--paper-2); color: var(--ink); }
+
+    .tile-eyebrow {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      opacity: .85;
+    }
+    .tile-value {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+      line-height: 1;
+      margin-top: 14px;
+    }
+    .tile-value.small { font-size: clamp(1.6rem, 3.2vw, 2.2rem); line-height: 1.05; }
+    .tile-sub {
+      font-size: .82rem;
+      font-weight: 500;
+      opacity: .92;
+      margin-top: 8px;
+    }
+    .tile-icon {
+      position: absolute;
+      bottom: -14px; right: -10px;
+      font-family: var(--display);
+      font-size: 8rem;
+      line-height: 1;
+      opacity: .14;
+    }
+
+    /* ─── Empty state (pre-1970 cards) ──────────────────────────── */
+    .empty-note {
+      grid-column: 1 / -1;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,203,31,.55) 0%, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(255,45,111,.45) 0%, transparent 55%),
+        #FFE0AA;
+      border: 3px solid var(--ink);
+      border-radius: 24px;
+      padding: 48px 36px 44px;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+      box-shadow: 8px 8px 0 var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Tarjetas amarilla + roja cruzadas */
+    .empty-cards {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 110px;
+      height: 88px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+    .empty-card {
+      width: 52px;
+      height: 76px;
+      border: 3px solid var(--ink);
+      border-radius: 6px;
+      position: absolute;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .empty-card.yellow {
+      background: var(--mostaza);
+      transform: translateX(-22px) rotate(-12deg);
+      z-index: 1;
+    }
+    .empty-card.red {
+      background: var(--magenta);
+      transform: translateX(22px) rotate(12deg);
+      z-index: 2;
+    }
+
+    .empty-title {
+      font-family: var(--display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .empty-text {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.02rem;
+      color: var(--ink);
+      line-height: 1.5;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .empty-text strong {
+      font-style: normal;
+      font-weight: 800;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      background: var(--paper);
+      border-top: 3px solid var(--ink);
+      padding: 28px 0;
+    }
+    .foot-inner {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 28px;
+      text-align: center;
+      font-size: .9rem;
+      color: var(--ink-soft);
+    }
+    .foot-inner a {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid var(--magenta);
+    }
+    .foot-inner a:hover { background: var(--mostaza); }
+
+    /* ─── Animations ────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ───────────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero-top">
+      <div class="brand">
+        <span class="brand-ball">⚽</span>
+        Mundial · Archivo
+      </div>
+      <span class="pill">1930 ↣ 2022</span>
+    </div>
+
+    <div class="hero-title">
+      <span class="eyebrow"><span class="dot"></span>Edición histórica · Volumen 01</span>
+
+      <h1>
+        <span class="row">Historia</span>
+        <span class="row">en <span class="num">Números</span></span>
+        <span class="row"><span class="underline">de los</span> <span class="accent-magenta">Mundiales</span></span>
+      </h1>
+
+      <div class="hero-sub-row">
+        <p class="hero-sub">
+          <span class="ital">Noventa y dos años</span> de gambetas que doblaron el tiempo,
+          de penales que pararon ciudades enteras, de tribunas convertidas en sismo.
+          Cada partido, cada gol, cada minuto —
+          <strong>el torneo más grande del planeta, leído en datos.</strong>
+        </p>
+        <div class="hero-meta">
+          <div class="meta-block">
+            <div class="meta-val" id="meta-cups">—</div>
+            <div>Ediciones</div>
+          </div>
+          <div class="meta-block">
+            <div class="meta-val" id="meta-matches">—</div>
+            <div>Partidos</div>
+          </div>
+          <div class="meta-block">
+            <div class="meta-val" id="meta-goals">—</div>
+            <div>Goles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Marquee strip — los 22 mundiales -->
+  <div class="strip">
+    <div class="strip-track" id="strip"></div>
+  </div>
+
+  <!-- ── GLOBAL RANKINGS ────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-headline">
+          El podio histórico
+          <span class="ital">— quiénes aparecen una y otra vez</span>
+        </div>
+        <span class="section-mark">Records eternos</span>
+      </div>
+
+      <div class="rankings">
+        <div class="rcard rcard-paises">
+          <div class="rcard-icon">★</div>
+          <div class="rcard-title">Los <em>habitués</em></div>
+          <div class="rcard-sub">Top 5 países por participaciones</div>
+          <div class="rank-list" id="list-countries"></div>
+        </div>
+
+        <div class="rcard rcard-jugadores">
+          <div class="rcard-icon">⚽</div>
+          <div class="rcard-title">Los <em>incansables</em></div>
+          <div class="rcard-sub">Top 5 jugadores con más partidos</div>
+          <div class="rank-list" id="list-players"></div>
+        </div>
+
+        <div class="rcard rcard-goleadores">
+          <div class="rcard-icon">◎</div>
+          <div class="rcard-title">Los <em>máquinas</em></div>
+          <div class="rcard-sub">Top 5 goleadores históricos</div>
+          <div class="rank-list" id="list-scorers"></div>
+        </div>
+
+        <div class="rcard rcard-coaches">
+          <div class="rcard-icon">⌘</div>
+          <div class="rcard-title">Los <em>arquitectos</em></div>
+          <div class="rcard-sub">Top 5 DTs con más partidos dirigidos</div>
+          <div class="rank-list" id="list-coaches"></div>
+        </div>
+
+        <div class="rcard rcard-goles">
+          <div class="rcard-icon">◐</div>
+          <div class="rcard-title">El reloj <em>marca gol</em></div>
+          <div class="rcard-sub">Distribución total de goles según el minuto</div>
+          <div class="dist" id="chart-goals"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPLORER ───────────────────────────────────────────────── -->
+  <section class="explorer">
+    <div class="explorer-inner">
+      <h2>Elegí un <span class="accent">mundial.</span></h2>
+      <p class="explorer-sub">
+        Cada año esconde una historia distinta. Buscala en el archivo y descubrila.
+      </p>
+      <div class="select-wrap">
+        <select id="yearSelect" aria-label="Elegí un Mundial">
+          <option value="">— Abrir el archivo —</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── YEAR DETAIL ────────────────────────────────────────────── -->
+  <section class="detail" id="yearDetail">
+    <div class="container">
+      <div class="detail-head">
+        <div class="detail-year" id="detailYear"></div>
+        <div class="detail-host" id="detailHost"></div>
+      </div>
+
+      <!-- Champion banner -->
+      <div class="champ" id="champCard">
+        <div class="champ-info">
+          <div class="champ-eyebrow">
+            <span class="star">★</span> Campeón del mundo
+          </div>
+          <div class="champ-name">
+            <span class="underline" id="champName"></span>
+          </div>
+          <div class="champ-stats">
+            <div>
+              <span class="champ-stat-val" id="champGoals"></span>
+              <span class="champ-stat-label">Goles anotados</span>
+            </div>
+            <div>
+              <span class="champ-stat-val" id="champRecord"></span>
+              <span class="champ-stat-label">Ganados / jugados</span>
+            </div>
+            <div>
+              <span class="champ-stat-val name" id="champManager"></span>
+              <span class="champ-stat-label">Director técnico</span>
+            </div>
+            <div>
+              <span class="champ-stat-val name" id="champTopScorer"></span>
+              <span class="champ-stat-label" id="champTopScorerLabel">Goleador del equipo</span>
+            </div>
+          </div>
+        </div>
+        <div class="champ-medal">
+          <div class="champ-medal-inner">
+            CAMPEÓN
+            <span class="big" id="champYear"></span>
+            ★ FIFA ★
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs-headline">
+        Lupa sobre el torneo <span class="ital">— elegí qué mirar</span>
+      </div>
+
+      <div class="tab-nav" id="tabNav">
+        <button class="tab-btn active" data-tab="partidos"><span class="dot"></span>Partidos</button>
+        <button class="tab-btn"        data-tab="goles"><span class="dot"></span>Goles</button>
+        <button class="tab-btn"        data-tab="tarjetas"><span class="dot"></span>Tarjetas</button>
+        <button class="tab-btn"        data-tab="arbitros"><span class="dot"></span>Árbitros</button>
+      </div>
+
+      <!-- Pane: Partidos -->
+      <div class="tab-pane active" data-pane="partidos">
+        <div class="pane-grid">
+          <div class="tile t-magenta">
+            <div>
+              <div class="tile-eyebrow">Partidos jugados</div>
+              <div class="tile-value" id="pMatchesTotal"></div>
+              <div class="tile-sub">total en el torneo</div>
+            </div>
+            <div class="tile-icon">◉</div>
+          </div>
+          <div class="tile t-naranja">
+            <div>
+              <div class="tile-eyebrow">Fueron a alargue</div>
+              <div class="tile-value" id="pPctExtra"></div>
+              <div class="tile-sub" id="pExtraSub"></div>
+            </div>
+            <div class="tile-icon">↻</div>
+          </div>
+          <div class="tile t-lila">
+            <div>
+              <div class="tile-eyebrow">De esos, a penales</div>
+              <div class="tile-value" id="pPctPK"></div>
+              <div class="tile-sub" id="pPKSub"></div>
+            </div>
+            <div class="tile-icon">●</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pane: Goles -->
+      <div class="tab-pane" data-pane="goles">
+        <div class="pane-grid">
+          <div class="tile t-azul">
+            <div>
+              <div class="tile-eyebrow">Goles totales</div>
+              <div class="tile-value" id="gTotal"></div>
+              <div class="tile-sub" id="gAvg"></div>
+            </div>
+            <div class="tile-icon">⚽</div>
+          </div>
+          <div class="tile t-magenta">
+            <div>
+              <div class="tile-eyebrow">Goles de penal</div>
+              <div class="tile-value" id="gPctPenalty"></div>
+              <div class="tile-sub" id="gPenaltySub"></div>
+            </div>
+            <div class="tile-icon">▲</div>
+          </div>
+          <div class="tile t-mostaza">
+            <div>
+              <div class="tile-eyebrow">Goleador del torneo</div>
+              <div class="tile-value small" id="gTopName"></div>
+              <div class="tile-sub" id="gTopSub"></div>
+            </div>
+            <div class="tile-icon">★</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pane: Tarjetas -->
+      <div class="tab-pane" data-pane="tarjetas">
+        <div class="pane-grid" id="cardsGrid">
+          <div class="tile t-mostaza">
+            <div>
+              <div class="tile-eyebrow">Amarillas</div>
+              <div class="tile-value" id="cYellow"></div>
+              <div class="tile-sub">tarjetas amarillas mostradas</div>
+            </div>
+            <div class="tile-icon">▮</div>
+          </div>
+          <div class="tile t-magenta">
+            <div>
+              <div class="tile-eyebrow">Rojas</div>
+              <div class="tile-value" id="cRed"></div>
+              <div class="tile-sub">expulsiones totales</div>
+            </div>
+            <div class="tile-icon">▮</div>
+          </div>
+          <div class="tile t-naranja">
+            <div>
+              <div class="tile-eyebrow">Rojas directas</div>
+              <div class="tile-value" id="cPctDirect"></div>
+              <div class="tile-sub" id="cDirectSub"></div>
+            </div>
+            <div class="tile-icon">!</div>
+          </div>
+        </div>
+        <div class="empty-note" id="cardsEmpty" hidden>
+          <div class="empty-cards" aria-hidden="true">
+            <div class="empty-card yellow"></div>
+            <div class="empty-card red"></div>
+          </div>
+          <div class="empty-title" id="cardsEmptyTitle"></div>
+          <p class="empty-text">
+            Las tarjetas amarilla y roja recién se usaron por primera vez en
+            <strong>México 1970</strong>. Antes, las expulsiones las dictaba
+            el árbitro de palabra y no quedaron registradas en la base de datos.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pane: Árbitros -->
+      <div class="tab-pane" data-pane="arbitros">
+        <div class="pane-grid">
+          <div class="tile t-lila">
+            <div>
+              <div class="tile-eyebrow">Árbitro top del torneo</div>
+              <div class="tile-value small" id="rName"></div>
+            </div>
+            <div class="tile-icon">⚖</div>
+          </div>
+          <div class="tile t-verde">
+            <div>
+              <div class="tile-eyebrow">Partidos dirigidos</div>
+              <div class="tile-value" id="rMatches"></div>
+              <div class="tile-sub">en este Mundial</div>
+            </div>
+            <div class="tile-icon">▤</div>
+          </div>
+          <div class="tile t-paper">
+            <div>
+              <div class="tile-eyebrow">Nacionalidad</div>
+              <div class="tile-value small" id="rCountry"></div>
+              <div class="tile-sub">país del árbitro</div>
+            </div>
+            <div class="tile-icon">◆</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="foot-inner">
+      © 2026 Mundial en Números · Lucas Palumbo · Datos:
+      <a href="https://github.com/jfjelstul/worldcup" target="_blank" rel="noopener">github.com/jfjelstul/worldcup</a>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Helpers ─────────────────────────────────────────────────── */
+    function nfmt(n) { return Number(n).toLocaleString('es-AR'); }
+
+    function animCount(el, target, duration = 800) {
+      const num = parseFloat(target);
+      const isFloat = String(target).includes('.');
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        const v = num * ease;
+        el.textContent = isFloat ? v.toFixed(2) : nfmt(Math.round(v));
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function renderRanking(containerId, items, nameFn, valFn, teamFn) {
+      const el = document.getElementById(containerId);
+      el.innerHTML = items.map((item, i) => {
+        const team = teamFn ? teamFn(item) : '';
+        const badge = team ? `<span class="ritem-team">${team}</span>` : '';
+        return `
+          <div class="ritem">
+            <span class="ritem-rank">${i + 1}</span>
+            <span class="ritem-name"><span>${nameFn(item)}</span>${badge}</span>
+            <span class="ritem-val">${valFn(item)}</span>
+          </div>`;
+      }).join('');
+    }
+
+    function renderGoalDist(items) {
+      const max = Math.max(...items.map(d => d.goals));
+      const el  = document.getElementById('chart-goals');
+      el.innerHTML = items.map((d, i) => {
+        const pct = (d.goals / max) * 100;
+        return `
+          <div class="dcol">
+            <div class="dbar-wrap">
+              <div class="dbar c${i}" data-count="${nfmt(d.goals)}"
+                   data-target="${pct}" style="height:0%"></div>
+            </div>
+            <div class="dlabel">${d.range}</div>
+          </div>`;
+      }).join('');
+      requestAnimationFrame(() => {
+        el.querySelectorAll('.dbar').forEach(b => {
+          b.style.height = b.dataset.target + '%';
+        });
+      });
+    }
+
+    function renderMarquee(years) {
+      const list = Object.values(years)
+        .sort((a, b) => a.year - b.year)
+        .map(y => `<span>${y.host.toUpperCase()} ${y.year} <em class="star">★</em></span>`);
+      // duplicar para loop continuo
+      document.getElementById('strip').innerHTML = list.concat(list).join('');
+    }
+
+    /* ── Tabs ────────────────────────────────────────────────────── */
+    function setupTabs() {
+      const nav = document.getElementById('tabNav');
+      nav.addEventListener('click', e => {
+        const btn = e.target.closest('.tab-btn');
+        if (!btn) return;
+        const target = btn.dataset.tab;
+        nav.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.querySelectorAll('.tab-pane').forEach(p =>
+          p.classList.toggle('active', p.dataset.pane === target));
+      });
+    }
+
+    /* ── Year Detail ─────────────────────────────────────────────── */
+    function showYear(d) {
+      const section = document.getElementById('yearDetail');
+      section.classList.remove('visible');
+      void section.offsetWidth;
+
+      document.getElementById('detailYear').textContent = d.year;
+      document.getElementById('detailHost').innerHTML =
+        `Sede <strong>${d.host}</strong>`;
+
+      // Champion
+      document.getElementById('champName').textContent    = d.champion;
+      document.getElementById('champYear').textContent    = d.year;
+      animCount(document.getElementById('champGoals'),    d.champion_goals);
+      document.getElementById('champRecord').textContent  =
+        `${d.champion_matches_won}/${d.champion_matches_played}`;
+      document.getElementById('champManager').textContent =
+        d.champion_manager || '—';
+      const cts = d.champion_top_scorer;
+      document.getElementById('champTopScorer').textContent =
+        cts ? cts.name : '—';
+      document.getElementById('champTopScorerLabel').textContent =
+        cts ? `Goleador del equipo · ${cts.goals} ${cts.goals === 1 ? 'gol' : 'goles'}` :
+              'Goleador del equipo';
+
+      // Tab: Partidos
+      const sm = d.stats_matches;
+      document.getElementById('pMatchesTotal').textContent = nfmt(sm.total);
+      document.getElementById('pPctExtra').textContent = sm.pct_extra_time.toFixed(1) + '%';
+      document.getElementById('pExtraSub').textContent =
+        `${sm.extra_time} de ${sm.total} partidos fueron a tiempo extra`;
+      document.getElementById('pPctPK').textContent =
+        sm.extra_time ? sm.pct_penalty_of_extra.toFixed(1) + '%' : '—';
+      document.getElementById('pPKSub').textContent =
+        sm.extra_time
+          ? `${sm.penalty_shootout} de ${sm.extra_time} alargues terminaron en penales`
+          : 'no hubo partidos a tiempo extra';
+
+      // Tab: Goles
+      const sg = d.stats_goals;
+      document.getElementById('gTotal').textContent = nfmt(sg.total);
+      document.getElementById('gAvg').textContent =
+        `${(sg.total / d.total_matches).toFixed(2)} goles por partido`;
+      document.getElementById('gPctPenalty').textContent = sg.pct_penalty.toFixed(1) + '%';
+      document.getElementById('gPenaltySub').textContent =
+        `${sg.penalty_goals} goles desde los 12 pasos`;
+      const gts = sg.top_scorer;
+      document.getElementById('gTopName').textContent = gts ? gts.name : '—';
+      document.getElementById('gTopSub').textContent =
+        gts ? `${gts.goals} goles · ${gts.team}` : '';
+
+      // Tab: Tarjetas — antes de 1970 no había sistema de tarjetas
+      const sc = d.stats_cards;
+      const cardsExist = sc.yellow > 0 || sc.red > 0;
+      document.getElementById('cardsGrid').hidden  = !cardsExist;
+      document.getElementById('cardsEmpty').hidden = cardsExist;
+      if (cardsExist) {
+        animCount(document.getElementById('cYellow'), sc.yellow);
+        animCount(document.getElementById('cRed'),    sc.red);
+        document.getElementById('cPctDirect').textContent =
+          sc.red ? sc.pct_direct_red.toFixed(1) + '%' : '—';
+        document.getElementById('cDirectSub').textContent =
+          sc.red
+            ? `${sc.direct_red} de ${sc.red} expulsiones fueron por roja directa`
+            : 'no hubo expulsiones registradas';
+      } else {
+        document.getElementById('cardsEmptyTitle').textContent =
+          `Sin registro de tarjetas en ${d.year}`;
+      }
+
+      // Tab: Árbitros
+      const sr = d.stats_referee;
+      document.getElementById('rName').textContent    = sr ? sr.name : '—';
+      document.getElementById('rMatches').textContent = sr ? sr.matches : '—';
+      document.getElementById('rCountry').textContent = sr ? sr.country : '—';
+
+      section.classList.add('visible');
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ── Init ────────────────────────────────────────────────────── */
+    fetch('data/historico.json')
+      .then(r => r.json())
+      .then(data => {
+        const global = data.global;
+        const years  = data.years;
+
+        // Hero meta — desde JSON
+        animCount(document.getElementById('meta-cups'),    global.total_tournaments);
+        animCount(document.getElementById('meta-matches'), global.total_matches);
+        animCount(document.getElementById('meta-goals'),   global.total_goals);
+
+        // Marquee
+        renderMarquee(years);
+
+        // Rankings
+        renderRanking('list-countries', global.top_countries,
+          d => d.country, d => d.appearances);
+        renderRanking('list-players', global.top_players,
+          d => d.player, d => d.matches, d => d.team);
+        renderRanking('list-scorers', global.top_scorers,
+          d => d.player, d => d.goals, d => d.team);
+        renderRanking('list-coaches', global.top_coaches,
+          d => d.coach, d => d.matches, d => d.team);
+        renderGoalDist(global.goal_distribution);
+
+        // Dropdown
+        const sel = document.getElementById('yearSelect');
+        Object.keys(years)
+          .sort((a, b) => Number(a) - Number(b))
+          .forEach(y => {
+            const opt = document.createElement('option');
+            opt.value = y;
+            opt.textContent = `${y}  ·  ${years[y].host}`;
+            sel.appendChild(opt);
+          });
+
+        sel.addEventListener('change', () => {
+          const y = sel.value;
+          if (y && years[y]) showYear(years[y]);
+          else document.getElementById('yearDetail').classList.remove('visible');
+        });
+
+        setupTabs();
+      })
+      .catch(err => {
+        console.error(err);
+        document.querySelector('.explorer-sub').textContent =
+          '⚠ No se pudo cargar data/historico.json — ejecutá generar_json.py primero.';
+      });
+  </script>
+</body>
+</html>
