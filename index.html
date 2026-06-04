@@ -419,7 +419,13 @@
       color: var(--ink);
     }
     @media (max-width: 720px) {
-      .dist { grid-template-columns: repeat(5, 1fr); }
+      /* En mobile el grid pasa de 10 a 5 columnas → quedan 2 filas.
+         Agregamos row-gap para que el data-count flotante de la fila de
+         abajo no choque con el dlabel de la fila de arriba. */
+      .dist {
+        grid-template-columns: repeat(5, 1fr);
+        row-gap: 32px;
+      }
       .dbar-wrap { height: 130px; }
     }
 
