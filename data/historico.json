@@ -1140,5 +1140,13 @@
         "matches": 4
       }
     }
+  },
+  "mundial_2026": {
+    "last_update": "2026-06-05T14:46:21.652666+00:00",
+    "matches_played": 0,
+    "total_goals": 0,
+    "standings": {},
+    "top_scorers": [],
+    "results": []
   }
 }
